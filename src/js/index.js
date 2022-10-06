@@ -62,17 +62,16 @@ function appendPicturesMarkup(array, totalHits) {
     Notify.info("We're sorry, but you've reached the end of search results.");
   }
 
-  const markup = array
-    .map(
-      ({
-        largeImageURL,
-        webformatURL,
-        tags,
-        likes,
-        views,
-        comments,
-        downloads,
-      }) => `<a href="${largeImageURL}">
+  const markup = array.map(
+    ({
+      largeImageURL,
+      webformatURL,
+      tags,
+      likes,
+      views,
+      comments,
+      downloads,
+    }) => `<a href="${largeImageURL}">
       <div class="photo-card">
   <img src="${webformatURL}" alt="${tags}" loading="lazy" />
   <div class="info">
@@ -95,9 +94,8 @@ function appendPicturesMarkup(array, totalHits) {
   </div>
 </div>
 </a>`
-    )
-    .join('');
-  galleryEl.innerHTML = markup;
+  );
+  galleryEl.insertAdjacentHTML('beforeend', markup.join(''));
 
   new SimpleLightbox('.gallery a ', {
     captionsData: 'alt',

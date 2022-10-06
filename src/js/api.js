@@ -11,7 +11,7 @@ const options = {
   },
 };
 
-export const fetchPictures = async (inputValue, pageNr) => {
+export const fetchPictures = async (inputValue, pageNr) =>
   await axios
     .get(`${BASE_URL}/api/?key=${KEY}&q=${inputValue}&page=${pageNr}`, options)
     .then(response => {
@@ -29,4 +29,3 @@ export const fetchPictures = async (inputValue, pageNr) => {
       }
       console.log(error.config);
     });
-};
