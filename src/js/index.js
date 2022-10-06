@@ -73,8 +73,8 @@ function appendPicturesMarkup(array, totalHits) {
       downloads,
     }) => `
       <div class="photo-card">
-      <a href="${largeImageURL}">
-  <img class="photo-card__size" src="${webformatURL}" alt="${tags}" loading="lazy"/>
+      <a class="photo-card__link" href="${largeImageURL}">
+  <img class="photo-card--size" src="${webformatURL}" alt="${tags}" loading="lazy"/>
   </a>
   <div class="info">
     <p class="info-item">

@@ -40,7 +40,11 @@ input {
   flex-wrap: wrap;
 }
 
-.photo-card__size {
+.photo-card__link {
+  width: 0;
+}
+
+.photo-card--size {
   max-width: 300px;
   height: 200px;
 }
