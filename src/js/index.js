@@ -52,7 +52,7 @@ function fetch() {
       page += 1;
     } else if (page === totalPage) {
       renderPictures(data);
-      Notify.info("We're sorry, but you've reached the end of search results.");
+      return Notify.info("We're sorry, but you've reached the end of search results.");
     }
   });
 }
