@@ -1,5 +1,9 @@
 .container {
   max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .search-form {
   margin-top: 20px;
@@ -32,11 +36,11 @@ input {
 .gallery {
   margin-top: 20px;
   display: flex;
-  gap: 30px;
+  gap: 15px;
   flex-wrap: wrap;
 }
 
 img {
-  widht: 200px;
-  height: 300px;
+  max-width: 300px;
+  height: 200px;
 }
