@@ -11,6 +11,20 @@ let page = 1;
 let totalPage = 0;
 let totalRenderItem = 0;
 
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        observer.unobserve(entry.target);
+        fetch();
+      }
+    });
+  },
+  {
+    threshold: 0.5,
+  }
+);
+
 searchForm.addEventListener('submit', onSearch);
 
 function onSearch(event) {
@@ -112,17 +126,3 @@ function clearGallery() {
   galleryEl.innerHTML = '';
   page = 1;
 }
-
-const observer = new IntersectionObserver(
-  (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        observer.unobserve(entry.target);
-        fetch();
-      }
-    });
-  },
-  {
-    threshold: 0.5,
-  }
-);
