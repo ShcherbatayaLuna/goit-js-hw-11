@@ -29,7 +29,7 @@ function fetch() {
     totalPage = Math.ceil(data.totalHits / 40);
 
     if (data.hits.length === 0) {
-      Notify.failure(
+      return Notify.failure(
         'Sorry, there are no images matching your search query. Please try again.'
       );
     }
