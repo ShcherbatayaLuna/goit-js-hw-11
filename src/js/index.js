@@ -58,7 +58,10 @@ function renderPictures(data) {
 function appendPicturesMarkup(array, totalHits) {
   totalRenderItem += array.length;
 
-  if (totalRenderItem === totalHits) {
+  if (totalRenderItem > 40 && totalRenderItem >= 500 ) {
+    Notify.info("We're sorry, but you've reached the end of search results.");
+  }
+  if (totalRenderItem > 40 && totalRenderItem === totalHits) {
     Notify.info("We're sorry, but you've reached the end of search results.");
   }
 
