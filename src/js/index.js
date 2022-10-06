@@ -71,29 +71,31 @@ function appendPicturesMarkup(array, totalHits) {
       views,
       comments,
       downloads,
-    }) => `<a href="${largeImageURL}">
+    }) => `
       <div class="photo-card">
-  <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+      <a href="${largeImageURL}">
+  <img src="${webformatURL}" alt="${tags}" loading="lazy"/>
+  </a>
   <div class="info">
     <p class="info-item">
-    ${likes}
       <b>Likes</b>
+      ${likes}
     </p>
     <p class="info-item">
-    ${views}
       <b>Views</b>
+      ${views}
     </p>
     <p class="info-item">
-    ${comments}
       <b>Comments</b>
+      ${comments}
     </p>
     <p class="info-item">
-    ${downloads}
       <b>Downloads</b>
+      ${downloads}
     </p>
   </div>
 </div>
-</a>`
+`
   );
   galleryEl.insertAdjacentHTML('beforeend', markup.join(''));
 
