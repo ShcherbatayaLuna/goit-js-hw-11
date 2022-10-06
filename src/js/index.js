@@ -9,7 +9,6 @@ const galleryEl = document.querySelector('.gallery');
 let inputValue = '';
 let page = 1;
 let totalPage = 0;
-let totalRenderItem = 0;
 
 const observer = new IntersectionObserver(
   (entries, observer) => {
@@ -34,7 +33,6 @@ function onSearch(event) {
   inputValue = searchQuery.value.trim();
 
   clearGallery();
-  totalRenderItem = 0;
   fetch();
 }
 
@@ -54,6 +52,7 @@ function fetch() {
       page += 1;
     } else if (page === totalPage) {
       renderPictures(data);
+      Notify.info("We're sorry, but you've reached the end of search results.");
     }
   });
 }
@@ -66,15 +65,10 @@ function renderPictures(data) {
     Notify.success(`Hooray! We found ${totalHits} images.`);
   }
 
-  appendPicturesMarkup(pictures, totalHits);
+  appendPicturesMarkup(pictures);
 }
 
-function appendPicturesMarkup(array, totalHits) {
-  totalRenderItem += array.length;
-
-  if (totalRenderItem && 500 === totalHits) {
-    Notify.info("We're sorry, but you've reached the end of search results.");
-  }
+function appendPicturesMarkup(array) {
 
   const markup = array.map(
     ({
